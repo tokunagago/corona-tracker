@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import countriesJson from '../src/countries.json'
-import './App.css';
 import TopPage from './pages/TopPage';
+import './App.css';
 
 function App() {
   const [country, setCountry] = useState('');
@@ -16,8 +16,6 @@ function App() {
     fetch(`https://api.covid19api.com/country/${country}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log('今日のデータ: ', data[data.length - 1]);
-        console.log('昨日のデータ: ', data[data.length - 2]);
         setCountryData({
           date: data[data.length - 1].Date,
           newConfirmed: data[data.length - 1].Confirmed - data[data.length - 2].Confirmed,
@@ -29,8 +27,7 @@ function App() {
   };
   return (
     <div>
-      {console.log(countryData)}
-      <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData}/>
+      <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} />
     </div>
   );
 }
