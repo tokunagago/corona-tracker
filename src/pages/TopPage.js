@@ -1,13 +1,15 @@
 import Title from "../components/Title";
 import Results from "../components/Results";
-import Selecotr from "../components/Selector";
+import Selecotor from "../components/Selector";
 
 const TopPage = (props) => {
   return (
-    <div>
-      <Title />
-      <Selecotr countriesJson={props.countriesJson} setCountry={props.setCountry} getCountryData={props.getCountryData} />
-      <Results />
+    <div className="top-page-container">
+      <div>
+        <Title />
+        <Selecotor countriesJson={props.countriesJson} setCountry={props.setCountry} getCountryData={props.getCountryData} />
+        <Results countryData={props.countryData} />
+      </div>
     </div>
   );
 };
