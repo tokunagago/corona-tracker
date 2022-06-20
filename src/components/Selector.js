@@ -1,12 +1,10 @@
-const Selector = (props) => {
+const Selector = ({ setCountry, countriesJson }) => {
   return (
     <div className="selector-container">
-      <select onChange={(e) => props.setCountry(e.target.value)}>
-        <option>Select A Country</option>
-        {props.countriesJson.map((country, index) =>
+      <select onChange={(e) => setCountry(e.target.value)}>
+        {countriesJson.map((country, index) =>
         <option key={index} value={country.Slug}>{country.Country}</option>)}
       </select>
-      <button onClick={props.getCountryData}>Get Data</button>
     </div>
   );
 };
