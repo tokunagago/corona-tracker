@@ -1,10 +1,14 @@
+import Header from '../components/Header';
 import Card from '../components/Card';
+import Title from '../components/Title';
 
-const WorldPage = (props) => {
+const WorldPage = ({allCountriesData}) => {
   return (
-    <div className="top-page-container">
+    <div className="world-page-container">
       <div>
-        <Card getAllCountriesData={props.getAllCountriesData} allCountriesData={props.allCountriesData} />
+        <Header />
+        <Title />
+        <Card allCountriesData={allCountriesData} />
       </div>
   </div>
 
