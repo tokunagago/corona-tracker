@@ -1,4 +1,13 @@
-const Selector = ({ setCountry, countriesJson }) => {
+type SelectorType = {
+  setCountry:  React.Dispatch<React.SetStateAction<string>>,
+  countriesJson: {
+    Country: string,
+    Slug: string
+  }[]
+};
+
+
+const Selector = ({ setCountry, countriesJson }: SelectorType) => {
   return (
     <div className="selector-container">
       <select onChange={(e) => setCountry(e.target.value)}>
